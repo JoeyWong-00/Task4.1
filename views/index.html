@@ -1,0 +1,141 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+    html *
+    {
+       font-family: Arial !important;
+    }
+        
+    .center {
+      margin: auto;
+      width: 60%;
+      padding: 10px;
+    }
+        
+    input, table {
+      width: 100%;
+    }
+        
+    
+    h1, h2{
+        color: darkgreen
+    }
+        
+    
+    select { 
+        width: 400px; 
+        text-align-last:center; 
+        margin: auto; 
+        width: 100%; 
+        font-size: 16px;
+    }
+        
+    </style>
+    
+    
+    
+   <form action="/" method="POST" onsubmit="return(validateForm(event))"> 
+    <div class="center">
+    <h1>Requester Registration</h1>
+        <h2>Create an iCrowdTask Account</h2>
+
+       <br><br>
+
+            <!-- Country of residence -->
+            <label for="country" placeholder="Choose from list">Country of residence*</label><br>
+            <select id="country" name="country" required>
+                <option value="" disabled hidden selected>Choose from list</option>
+                <option value="Australia">Australia</option>
+                <option value="America">America</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="United Kingdom">United Kingdom</option>
+            </select>
+    
+
+            <br><br>
+
+            <!-- First name Last name -->
+            <table>
+                    <tr>
+                        <td>
+                        <label for="fname">First name:</label>
+                        </td>
+
+                        <td>
+                        <label for="lname">Last name:</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                          <input type="text" id="fname" name="fname">
+                        </td>
+
+                        <td>
+                          <input type="text" id="lname" name="lname">
+                        </td>
+                    </tr>
+                <br><br>
+            </table>
+        
+        
+        
+        
+        
+             <!-- Email -->
+            <label for="email">Email*</label>
+                <input type="email" id="email" name="email"><br><br>
+
+
+            <!-- Password -->
+            <label >Password* 
+                <input name="password" id="password" type="password" /></label><br><br>     
+            <label>Confirm password*
+                <input type="password" name="confirm_password" id="confirm_password" />
+            </label><br><br>
+
+            <!-- Address -->
+             <label for="address">Address*</label>
+                <input type="address" id="address" name="address"><br><br><input type="address" id="address1" name="address1"><br><br>
+
+        
+            <!-- City -->
+            <table>
+                    <tr>
+                        <td>
+                            <label for="city">City*</label>
+                        </td>
+                        
+                        <td>
+                            <label for="state">State, Province o Region*</label>
+                        </td>
+                    </tr>
+                
+                    <tr> 
+                        <td>
+                            <input type="city" id="city" name="city">
+                        </td>
+                        
+                        <td>
+                            <input type="state" id="state" name="state">
+                        </td>
+                    </tr>
+            </table>
+                
+            <br><br>
+
+            <!-- ZIP/Postal code -->
+            <label for="ZIP">ZIP/Postal code</label>
+                <input type="ZIP" id="ZIP" name="ZIP"><br><br>
+
+            <!-- Mobile phone number -->
+            <label for="mobile">Mobile phone number*</label>
+                <input type="mobile" id="mobile" name="mobile"><br><br>
+            
+            <button type="submit" class="createaccount" style="margin-left:auto;margin-right:auto;display:block">Create Account</button>
+    </div>
+</form>
+    <script src="/js/validator.min.js"></script>
+    <script src="/js/validateForm.js"></script>
+</html>
