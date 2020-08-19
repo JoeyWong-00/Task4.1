@@ -5,6 +5,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const validator = require('validator');
 const user = require('./models/user');
+const SendEmail = require('./features/sendEmail');
 
 // Express app
 const app = express();
@@ -26,6 +27,8 @@ app.get('/', (request, response) => {
 })
 app.post('/', (request, response) => {
     if(validateUserInfo(request)) {
+        // Send welcome email function
+        SendEmail(request.body.email);
         const newUser = new user({...request.body, address: request.body.address + request.body.address1});
         newUser
             .save()
