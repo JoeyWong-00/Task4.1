@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 const validator = require('validator');
 const user = require('./models/user');
 const SendEmail = require('./features/sendEmail');
+const workersRouter = require('./api/workers');
 
 // Express app
 const app = express();
@@ -18,8 +19,13 @@ mongoose
     .catch(err => console.log(err))
 
 // Middileware
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.json());
 
 // Routes
 app.get('/', (request, response) => {
@@ -38,7 +44,8 @@ app.post('/', (request, response) => {
         response.send("Error");
     }
 })
-
+// Worker
+app.use("/workers", workersRouter);
 
 // Function to validate user's info
 function validateUserInfo(request) {
